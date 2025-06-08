@@ -33,7 +33,7 @@ public class MyHashSet{
         }
     }
 
-    public void remove(Object value) throws Exception {
+    public void remove(Object value)  {
         int index = getHashCode(value);
 
         Node head = buckets[index];
