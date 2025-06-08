@@ -8,18 +8,15 @@ import java.util.List;
 
 
 public class Main {
-    public static void main(String[] args) throws Exception {
-
+    public static void main(String[] args) {
+        //HashSet
         MyHashSet set = new MyHashSet();
         set.add("asd");
         System.out.println(set.contains("asd"));
         System.out.println(set.contains("sad"));
-
         set.add("asd");set.add("asd");set.add("sad");set.add("sad");set.add("iuo");set.add("dsa");
         set.add(8);set.add(8);
-
         System.out.println(set.size());
-
         set.add(12);set.add(117);set.add(111);set.add(116);set.add(2321);
         set.add(12);set.add(121);set.add(131);set.add(1451);set.add(162);
         set.add(171);set.add(181);set.add(191);
@@ -28,12 +25,13 @@ public class Main {
         set.remove(12);set.remove(11);
         System.out.println(set.size());
         System.out.println();
-
-        String[] strings = {"asd","asdas","1","1","1"};
-        MyArrayList<String> list = new MyArrayList<>(strings);
+        //ArrayList
+        MyArrayList<String> list = new MyArrayList<>(new String[]{"asd", "asdas", "1", "1", "1"});
+        System.out.println(list.get(2));
+        list.remove(2);
         System.out.println(list);
         System.out.println();
-
+        //Students
         List<Student> students = List.of(
                 new Student("Иван", Arrays.asList(
                         new Book("451 градус по фаренгейту", 2001, 200),
@@ -64,8 +62,7 @@ public class Main {
                         new Book("Мертвые души", 2015, 522)
                 ))
         );
-
-
+        //Stream
         students.stream()
                 .peek(System.out::println)
                 .flatMap(student -> student.getBooks().stream())

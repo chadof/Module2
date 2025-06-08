@@ -13,13 +13,16 @@ public class MyArrayList<T> {
         addAll(array);
     }
 
-    public MyArrayList() {}
-
     public T get(int index) {
         return (T) array[index];
     }
 
     public void add(T item) {
+        if(count == size()-1) {
+            Object[] newArray = new Object[size()*2];
+            System.arraycopy(array, 0, newArray, 0, count);
+            array = newArray;
+        }
         array[count++]=item;
     }
 
@@ -31,8 +34,8 @@ public class MyArrayList<T> {
         count--;
     }
     public void addAll(T[] array) {
-        for(int i = 0;i< array.length;i++) {
-            add(array[i]);
+        for (T t : array) {
+            add(t);
         }
     }
     public int size(){
